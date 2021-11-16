@@ -1,3 +1,7 @@
+var maxvote=-1;
+var winname="";
+var d = new Date(); // for now
+var hr=d.getHours();
 App = {
   web3Provider: null,
   contracts: {},
@@ -105,11 +109,23 @@ App = {
           var name = candidate[1];
           var voteCount = candidate[3];
           var party = candidate[2];
-          // Render candidate Result
-          var candidateTemplate =
-            `<tr><th>${id}</th><td>${name}</td><td>${party}</td><td>${voteCount}</td></tr>`;
-          candidatesResults.append(candidateTemplate);
 
+          if(voteCount>maxvote){
+            maxvote=voteCount;
+            winname=name;
+          }
+          // Render candidate Result
+         
+          if(hr>=17){
+            var candidateTemplate =
+            `<tr><th>${id}</th><td>${name}</td><td>${party}</td><td>${voteCount}</td>`;
+          candidatesResults.append(candidateTemplate);   
+          }
+          else{
+          var candidateTemplate =
+            `<tr><th>${id}</th><td>${name}</td><td>${party}</td>`;
+          candidatesResults.append(candidateTemplate);
+          }
           // Render candidate ballot option
           var candidateOption = `<option value="${id}"> ${name} (${party}) </option>`
           candidatesSelect.append(candidateOption);
@@ -119,13 +135,19 @@ App = {
     }).then(function (hasVoted) {
       // Do not allow a user to vote
       if (hasVoted) {
+        $('#bv-voted').text(`Yes`) 
+        if(hr>=17)
+          result();
+        else{
         $('form').hide();
         $('#vote-msg').html(`<div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3">
         <div class="alert alert-danger text-center" role="alert">
           <span>You have already voted!</span>
         </div>
       </div>`)
-        $('#bv-voted').text(`Yes`)
+       
+        
+        }
       }
       else {
         $('#bv-voted').text(`No`)
@@ -158,3 +180,15 @@ $(function () {
     App.init();
   });
 });
+
+
+const result= () => {
+
+
+  $('form').hide();
+  $('#vote-msg').html(`<div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3">
+  <div class="alert alert-success text-center" role="alert">
+    <span>VOTING TIME IS OVER AND THE WINNER IS ${winname} with ${maxvote} vote!!! Congratulation to the winner</span>
+  </div>
+</div>`)
+}

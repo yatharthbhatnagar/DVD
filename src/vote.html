@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BlockVote</title>
+  <title>DVD-Digital Voting Dock</title>
   <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
 
   <link href="css/landing.css" rel="stylesheet">
@@ -34,6 +34,7 @@
     </div>
   </div>
 
+
   <!-- Content   -->
   <div id="content" style="display: none;">
     <div class="container" id="votingPage">
@@ -50,7 +51,18 @@
                   <th>#</th>
                   <th>Candidate Name</th>
                   <th>Party</th>
-                  <th>Votes</th>
+                  <th id="v1" style="visibility:hidden">vote</th>
+                  <script>
+                  var d=getDate();
+                  var hr=d.getHours();
+                  if(hr>=17)
+                    { 
+                      alert("Please");
+                      document.getElementById('v1').style.visibility="visible";
+                     
+                    }
+                  </script>
+                  <!-- <th>Votes</th> -->
                 </tr>
               </thead>
               <tbody id="candidatesResults">
@@ -77,6 +89,7 @@
 
 
   </div>
+  
   <script src="js/navbar.js"></script>
   <script>
     window.addEventListener('load', function() {
