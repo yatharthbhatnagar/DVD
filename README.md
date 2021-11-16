@@ -12,7 +12,7 @@ BlockVote is a blockchain based election system which lets voters elect candidat
 
 >Make Sure that you've Truffle and Ganache installed
 
-1. Clone the repo: `git clone https://github.com/iSumitBanik/BlockVote.git`
+1. Clone the repo: `https://github.com/yatharthbhatnagar/DVD`
 2. Navigate to the folder: `cd BlockVote`
 3. Install dependencies: `npm install`
 4. Run server: `npm run dev`
