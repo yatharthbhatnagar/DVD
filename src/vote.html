@@ -38,38 +38,12 @@
     <h3 id="voteStart">Voting Will Start At : 12 : 00 PM</h3>
     <h3 id="count"></h3>
   </div>
-  <script>
-    var slashTime = new Date("nov 18, 2021 17:00:00").getTime();
-    var currTime = new Date();
-    var currHrs = currTime.getHours();
-    var currSecs = currTime.getMinutes();
-
-    if (currHrs >= 12 && currHrs <= 20) {
-
-      var time = setInterval(() => {
-        var startTime = new Date().getTime();
-        document.getElementById("tableContent").style.display = "block";
-        var diff = slashTime - startTime;
-
-        var hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        var sec = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById('count').innerHTML = `Remaining Time : ${hrs}hr : ${min}min : ${sec}sec`;
-        document.getElementById("voteStart").innerHTML = `Voting Started At 12 : 00 PM`;
-      }, 1000);
-    }
-    if(currHrs >= 21){
-        document.getElementById("voteStart").innerHTML = "Voting has Ended";
-      }
-
-  </script>
 
   <!-- Content   -->
-  <div id="content" style="display: none;">
-    <div class="container" style="margin-top: 150px;" id="votingPage">
+  <div id="content">
+    <div class="container" style="margin-top: 150px; display: none;" id="votingPage">
       <div class="row" id="check-web3" style="margin-top: 30px;"></div>
-      <div class="row" style="display: none;">
+      <div class="row">
         <div class="col-lg-6 col-sm-12" id="voteImage">
           <img src="./img/voteIndia.png" width="300px" alt="">
         </div>
@@ -115,7 +89,37 @@
       </div>
     </div>
 
+    <script>
+      var slashTime = new Date("nov 18, 2021 17:00:00").getTime();
+      var currTime = new Date();
+      var currHrs = currTime.getHours();
+      var currMin = currTime.getMinutes();
+      var currSec = currTime.getSeconds();
+      var currDate = currTime.getDate();
+      console.log(currDate);
 
+      if (currDate == 17) {
+        if (currHrs >= 12 && currHrs < 24) {
+
+          var time = setInterval(() => {
+            var startTime = new Date().getTime();
+            document.getElementById("votingPage").style.display = "block";
+            var diff = slashTime - startTime;
+
+            var hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var sec = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('count').innerHTML = `Remaining Time : ${hrs}hr : ${min}min : ${sec}sec`;
+            document.getElementById("voteStart").innerHTML = `Voting Started At 12 : 00 PM`;
+          }, 1000);
+        }
+        if (currHrs >= 23 && currDate >= 17) {
+          document.getElementById("voteStart").innerHTML = "Voting has Ended";
+        }
+      }
+
+    </script>
 
   </div>
 
