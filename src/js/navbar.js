@@ -2,7 +2,7 @@ let nav = document.querySelector("#navbar-custom");
 
 nav.innerHTML = `
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav id="navbarId" class="navbar navbar-expand-lg navbar-light">
 <a class="navbar-brand" href="/">
   <img src="./img/logo.png" width="100px" loading="lazy"/>
 </a>
@@ -27,17 +27,3 @@ nav.innerHTML = `
   </ul>
 </div>
 </nav>`
-var endTime = new Date("nov 16, 2021 23:00:00").getTime();
-
-  var time = setInterval(() => {
-
-    var startTime = new Date().getTime();
-
-    var diff = endTime - startTime;
-
-    var hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    var sec = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById('countdown').innerHTML = `Remaining Time ${hrs}hr: ${min}min: ${sec}s`;
-  }, 1000);

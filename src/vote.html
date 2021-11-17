@@ -33,15 +33,45 @@
       </div>
     </div>
   </div>
+  <div class="voterDiv">
+    <h3 id="voteStart">Voting Started At : 12 : 00 PM</h3>
+    <h3 id="count"></h3>
+  </div>
+  <script>
+    var slashTime = new Date("nov 17, 2021 23:00:00").getTime();
+    console.log(slashTime);
+    var startTime = new Date().getTime();
 
+    var diff = slashTime - startTime;
+
+    var slashhDate = Math.floor((startTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    console.log(slashhDate);
+
+    if (slashhDate >= 12) {
+      var time = setInterval(() => {
+
+        var startTime = new Date().getTime();
+
+        var diff = slashTime - startTime;
+
+        var hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var sec = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('count').innerHTML = `Remaining Time : ${hrs}hr : ${min}min : ${sec}sec`;
+      }, 1000);
+    }
+
+
+  </script>
 
   <!-- Content   -->
   <div id="content" style="display: none;">
-    <div class="container" id="votingPage">
+    <div class="container" style="margin-top: 150px;" id="votingPage">
       <div class="row" id="check-web3" style="margin-top: 30px;"></div>
       <div class="row">
-        <div class="col-lg-6 col-sm-12">
-          <img src="https://image.flaticon.com/icons/svg/927/927250.svg" width="300px" alt="">
+        <div class="col-lg-6 col-sm-12" id="voteImage">
+          <img src="./img/voteIndia.png" width="300px" alt="">
         </div>
         <div class="col-lg-6 col-sm-12">
           <div>
@@ -53,13 +83,12 @@
                   <th>Party</th>
                   <th id="v1" style="visibility:hidden">vote</th>
                   <script>
-                  var d=getDate();
-                  var hr=d.getHours();
-                  if(hr>=17)
-                    { 
+                    var d = getDate();
+                    var hr = d.getHours();
+                    if (hr >= 17) {
                       alert("Please");
-                      document.getElementById('v1').style.visibility="visible";
-                     
+                      document.getElementById('v1').style.visibility = "visible";
+
                     }
                   </script>
                   <!-- <th>Votes</th> -->
@@ -89,22 +118,22 @@
 
 
   </div>
-  
+
   <script src="js/navbar.js"></script>
   <script>
-    window.addEventListener('load', function() {
-  if (typeof web3 !== 'undefined') {
-    if (web3.currentProvider.isMetaMask === true) {
-      console.log('MetaMask is active')
-    } else {
-      $('#check-web3').html(`<div class="alert alert-danger text-center" role="alert">
+    window.addEventListener('load', function () {
+      if (typeof web3 !== 'undefined') {
+        if (web3.currentProvider.isMetaMask === true) {
+          console.log('MetaMask is active')
+        } else {
+          $('#check-web3').html(`<div class="alert alert-danger text-center" role="alert">
           <span>Please Install Metamask for voting</span>
         </div>`)
-    }
-  } else {
-    console.log('web3 is not found')
-  }
-})
+        }
+      } else {
+        console.log('web3 is not found')
+      }
+    })
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

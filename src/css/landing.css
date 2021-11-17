@@ -28,3 +28,77 @@ body {
   background-color: black;
   color: white;
 }
+
+#navbar-custom{
+  height: 100px;
+}
+
+#navbarId{
+  max-height: 100px;
+  border-radius: 50% 10% / 10% 40%;
+  background-color: #cfbdbda8;
+}
+
+#navbarNav ul li a{
+  transition: 0.25s all;
+}
+
+#navbarNav ul li a:hover{
+  color: black;
+}
+
+#navbarNav ul li a::after{
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(165, 104, 104);
+  transition: width .3;
+}
+
+#navbarNav ul li a:hover::after{
+  width: 100%;
+  transition: width .3s;
+}
+
+/* #votingTime{
+  margin-top: 30px;
+  display:grid;
+  grid-template-columns: 500px 400px;
+  align-items: center;
+  justify-content: center;
+
+} */
+
+#voteStart{
+  margin-right: 80px;
+}
+.voterDiv{
+position: absolute;
+top: 25%;
+left: 50%;
+transform: translate(-50%, -50%);
+height: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 1200px;
+background-color: white;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+display: flex;
+background: linear-gradient(to bottom right, #cfbdbda8, white);
+}
+
+
+
+/* #count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+} */
+#voteImage img{
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
