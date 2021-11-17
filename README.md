@@ -1,8 +1,6 @@
 # DVD-DIGITAL VOTING DOCK 🤝🏻
 DVD is a blockchain based election system which lets voters elect candidate in an election.
 
-![](https://img.shields.io/github/languages/code-size/iSumitBanik/BlockVote?style=flat-square) ![](https://img.shields.io/github/stars/iSumitBanik/BlockVote?style=flat-square) ![](https://img.shields.io/github/last-commit/iSumitBanik/BlockVote?style=flat-square) ![](https://img.shields.io/github/followers/iSumitBanik?style=flat-square)
-
 ### Technology Stack 🎨
 1. [BootStrap](https://getbootstrap.com/) 
 2. [Truffle](https://www.trufflesuite.com/) 
