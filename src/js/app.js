@@ -188,7 +188,7 @@ const result= () => {
   $('form').hide();
   $('#vote-msg').html(`<div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3">
   <div class="alert alert-success text-center" role="alert">
-    <span>VOTING TIME IS OVER AND THE WINNER IS ${winname} with ${maxvote} vote!!! Congratulation to the winner</span>
+    <span>VOTING TIME IS OVER AND THE WINNER IS ${winname} with ${maxvote} vote!!! Congratulations to the winner</span>
   </div>
 </div>`)
 }
