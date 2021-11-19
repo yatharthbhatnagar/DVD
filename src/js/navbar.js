@@ -21,7 +21,7 @@ nav.innerHTML = `
       <a class="nav-link" href="./vote.html">Cast Your Vote</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="./blockvote-card.html">My BlockVote Card</a>
+      <a class="nav-link" href="./blockvote-card.html">My DVD Card</a>
     </li>
 
   </ul>

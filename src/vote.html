@@ -55,11 +55,11 @@
                   <th>#</th>
                   <th>Candidate Name</th>
                   <th>Party</th>
-                  <th id="v1" style="visibility:hidden">vote</th>
+                  <th id="v1" style="display: none">vote</th>
                   <script>
                     var d = getDate();
                     var hr = d.getHours();
-                    if (hr >= 22) {
+                    if (hr >= 11) {
                       alert("Please");
                       document.getElementById('v1').style.visibility = "visible";
 
@@ -98,8 +98,8 @@
       var currDate = currTime.getDate();
       console.log(currDate);
 
-      if (currDate == 17) {
-        if (currHrs >= 12 && currHrs < 24) {
+      if (currDate == 18) {
+        if (currHrs >= 12 && currHrs < 17) {
 
           var time = setInterval(() => {
             var startTime = new Date().getTime();
@@ -114,7 +114,7 @@
             document.getElementById("voteStart").innerHTML = `Voting Started At 12 : 00 PM`;
           }, 1000);
         }
-        if (currHrs >= 23 && currDate >= 17) {
+        if (currHrs >= 17 && currDate >= 17) {
           document.getElementById("voteStart").innerHTML = "Voting has Ended";
         }
       }
