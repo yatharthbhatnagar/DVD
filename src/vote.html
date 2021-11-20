@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="voterDiv">
-    <h3 id="voteStart">Voting Will Start At : 12 : 00 PM</h3>
+    <h3 id="voteStart">Voting Will Start At : 12 : 00 PM on 20 Nov 2021</h3>
     <h3 id="count"></h3>
   </div>
 
@@ -55,16 +55,16 @@
                   <th>#</th>
                   <th>Candidate Name</th>
                   <th>Party</th>
-                  <th id="v1" style="visibility:hidden">vote</th>
-                  <script>
+                  <th id="v1" style="display: none;"></th>Votes</th>
+                  <!-- <script>
                     var d = getDate();
                     var hr = d.getHours();
-                    if (hr >= 22) {
+                    if (hr >= 11) {
                       alert("Please");
                       document.getElementById('v1').style.visibility = "visible";
 
                     }
-                  </script>
+                  </script> -->
                   <!-- <th>Votes</th> -->
                 </tr>
               </thead>
@@ -90,7 +90,7 @@
     </div>
 
     <script>
-      var slashTime = new Date("nov 18, 2021 17:00:00").getTime();
+      var slashTime = new Date("nov 20, 2021 17:00:00").getTime();
       var currTime = new Date();
       var currHrs = currTime.getHours();
       var currMin = currTime.getMinutes();
@@ -98,8 +98,8 @@
       var currDate = currTime.getDate();
       console.log(currDate);
 
-      if (currDate == 17) {
-        if (currHrs >= 12 && currHrs < 24) {
+      if (currDate == 20) {
+        if (currHrs >= 12 && currHrs < 17) {
 
           var time = setInterval(() => {
             var startTime = new Date().getTime();
@@ -114,8 +114,9 @@
             document.getElementById("voteStart").innerHTML = `Voting Started At 12 : 00 PM`;
           }, 1000);
         }
-        if (currHrs >= 23 && currDate >= 17) {
+        if (currHrs >= 17 && currDate >= 1) {
           document.getElementById("voteStart").innerHTML = "Voting has Ended";
+          document.getElementById("v1").style.display = "block";
         }
       }
 
